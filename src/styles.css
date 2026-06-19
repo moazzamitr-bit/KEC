@@ -549,7 +549,7 @@ button { color: inherit; }
 .industry-panels { display: flex; height: 530px; overflow: hidden; }
 .industry-panels button {
   align-items: flex-start;
-  background-image: linear-gradient(0deg, rgba(4,7,9,.92), rgba(4,7,9,.06) 70%), url("/assets/industrial-panorama.webp");
+  background-image: linear-gradient(0deg, rgba(4,7,9,.92), rgba(4,7,9,.06) 70%), var(--industrial-image);
   background-position: var(--panel-position) center;
   background-size: auto 100%;
   border: 0;
@@ -657,7 +657,7 @@ button { color: inherit; }
 
 .contact { border-top: 1px solid var(--line); }
 .contact-hero { min-height: 500px; overflow: hidden; position: relative; }
-.contact-hero__image { background: url("/assets/port.webp") center / cover no-repeat; inset: 0; position: absolute; }
+.contact-hero__image { background: var(--contact-image) center / cover no-repeat; inset: 0; position: absolute; }
 .contact-hero::after { background: linear-gradient(90deg, rgba(5,7,8,.97), rgba(5,7,8,.7) 42%, rgba(5,7,8,.05) 75%), linear-gradient(0deg, rgba(5,7,8,.5), transparent); content: ""; inset: 0; position: absolute; }
 .contact-hero__content { left: 7vw; max-width: 620px; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
 .contact-hero h2 { color: var(--gold-light); font-family: var(--serif); font-size: clamp(54px, 5.8vw, 90px); font-weight: 400; letter-spacing: -.045em; line-height: .93; margin: 0; }

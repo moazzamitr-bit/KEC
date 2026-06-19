@@ -26,6 +26,8 @@ import {
   X,
 } from "lucide-react";
 
+const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
+
 const copy = {
   en: {
     nav: {
@@ -242,16 +244,16 @@ const trustItems = {
 
 const aboutCards = {
   en: [
-    ["Reliable Supply", "/assets/about-reliable-supply.webp"],
-    ["Technical Expertise", "/assets/about-technical-expertise.webp"],
-    ["Global Logistics", "/assets/about-global-logistics.webp"],
-    ["Trusted Partner", "/assets/about-trusted-partner.webp"],
+    ["Reliable Supply", asset("about-reliable-supply.webp")],
+    ["Technical Expertise", asset("about-technical-expertise.webp")],
+    ["Global Logistics", asset("about-global-logistics.webp")],
+    ["Trusted Partner", asset("about-trusted-partner.webp")],
   ],
   fa: [
-    ["تأمین قابل اعتماد", "/assets/about-reliable-supply.webp"],
-    ["تخصص فنی", "/assets/about-technical-expertise.webp"],
-    ["لجستیک جهانی", "/assets/about-global-logistics.webp"],
-    ["شریک مورد اعتماد", "/assets/about-trusted-partner.webp"],
+    ["تأمین قابل اعتماد", asset("about-reliable-supply.webp")],
+    ["تخصص فنی", asset("about-technical-expertise.webp")],
+    ["لجستیک جهانی", asset("about-global-logistics.webp")],
+    ["شریک مورد اعتماد", asset("about-trusted-partner.webp")],
   ],
 };
 
@@ -277,7 +279,7 @@ function useReveal() {
 function Brand({ compact = false }) {
   return (
     <a className={`brand ${compact ? "brand--compact" : ""}`} href="#top" aria-label="Khobregan Energy home">
-      <img src="/assets/kec-mark.png" alt="" />
+      <img src={asset("kec-mark.png")} alt="" />
       <span className="brand__divider" />
       <span className="brand__name">KHOBREGAN<br />ENERGY</span>
     </a>
@@ -351,11 +353,11 @@ function Hero({ t }) {
         muted
         playsInline
         preload="auto"
-        poster="/assets/hero.webp"
+        poster={asset("hero.webp")}
         aria-hidden="true"
         onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
       >
-        <source src="/assets/khobregan-hero.mp4" type="video/mp4" />
+        <source src={asset("khobregan-hero.mp4")} type="video/mp4" />
       </video>
       <div className="hero__shade" />
       <div className="hero__grid" />
@@ -622,7 +624,7 @@ function Network({ lang, t }) {
           </div>
         </div>
         <div className="network-artwork" data-reveal>
-          <img src="/assets/global-network-reference-map.webp" alt="Khobregan Energy trade routes from the Middle East to Turkey, Europe, CIS, China and Africa" />
+          <img src={asset("global-network-reference-map.webp")} alt="Khobregan Energy trade routes from the Middle East to Turkey, Europe, CIS, China and Africa" />
         </div>
       </div>
     </section>
@@ -755,7 +757,13 @@ export default function App() {
     document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
   }, [lang]);
   return (
-    <div className={`app app--${lang}`}>
+    <div
+      className={`app app--${lang}`}
+      style={{
+        "--industrial-image": `url("${asset("industrial-panorama.webp")}")`,
+        "--contact-image": `url("${asset("port.webp")}")`,
+      }}
+    >
       <Header lang={lang} setLang={setLang} t={t} />
       <main>
         <Hero t={t} />
