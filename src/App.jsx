@@ -760,7 +760,7 @@ export default function App() {
     <div
       className={`app app--${lang}`}
       style={{
-        "--contact-image": `url("${asset("port.webp")}")`,
+        "--contact-image": `url("${asset("contact-oil-tankers.webp")}")`,
       }}
     >
       <Header lang={lang} setLang={setLang} t={t} />
