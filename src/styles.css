@@ -549,9 +549,9 @@ button { color: inherit; }
 .industry-panels { display: flex; height: 530px; overflow: hidden; }
 .industry-panels button {
   align-items: flex-start;
-  background-image: linear-gradient(0deg, rgba(4,7,9,.92), rgba(4,7,9,.06) 70%), var(--industrial-image);
-  background-position: var(--panel-position) center;
-  background-size: auto 100%;
+  background-image: linear-gradient(0deg, rgba(4,7,9,.94), rgba(4,7,9,.1) 72%), var(--industry-image);
+  background-position: center;
+  background-size: cover;
   border: 0;
   border-inline-end: 1px solid rgba(255,255,255,.25);
   cursor: pointer;
@@ -566,7 +566,7 @@ button { color: inherit; }
   transition: flex .7s cubic-bezier(.2,.7,.2,1), filter .4s;
 }
 .industry-panels button::before { background: var(--red); content: ""; height: 3px; left: 27px; position: absolute; top: 0; transform: scaleX(0); transform-origin: left; transition: transform .4s; width: 52px; }
-.industry-panels button:not(.active) { filter: grayscale(.35) brightness(.7); }
+.industry-panels button:not(.active) { filter: grayscale(.3) brightness(.62); }
 .industry-panels button.active { flex: 1.8; }
 .industry-panels button.active::before { transform: scaleX(1); }
 .industry-panels__number { color: var(--gold-light); font-size: 10px; letter-spacing: .12em; margin-bottom: 15px; }

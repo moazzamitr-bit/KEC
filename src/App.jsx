@@ -191,20 +191,20 @@ const capabilities = {
 
 const industries = {
   en: [
-    ["Oil & Gas", "Equipment and supply programs for upstream and midstream operations."],
-    ["Petrochemical", "Technical procurement across complex process environments."],
-    ["Mining & Metals", "Materials, machinery and export execution for industrial metals."],
-    ["Refineries", "Critical equipment and materials for demanding refinery operations."],
-    ["Power Plants", "Industrial components and packages supporting reliable generation."],
-    ["EPC Projects", "Coordinated supply and commercial support for project delivery."],
+    ["Oil & Gas", "Equipment and supply programs for upstream and midstream operations.", asset("industry-oil-gas.webp")],
+    ["Petrochemical", "Technical procurement across complex process environments.", asset("industry-petrochemical.webp")],
+    ["Mining & Metals", "Materials, machinery and export execution for industrial metals.", asset("industry-mining-metals.webp")],
+    ["Refineries", "Critical equipment and materials for demanding refinery operations.", asset("industry-refineries.webp")],
+    ["Power Plants", "Industrial components and packages supporting reliable generation.", asset("industry-power-plants.webp")],
+    ["EPC Projects", "Coordinated supply and commercial support for project delivery.", asset("industry-epc-projects.webp")],
   ],
   fa: [
-    ["نفت و گاز", "برنامه‌های تأمین تجهیزات برای عملیات بالادست و میان‌دست."],
-    ["پتروشیمی", "خرید فنی برای محیط‌های پیچیده فرایندی."],
-    ["معدن و فلزات", "مواد، ماشین‌آلات و اجرای صادرات فلزات صنعتی."],
-    ["پالایشگاه‌ها", "تجهیزات و مواد حیاتی برای عملیات دشوار پالایشی."],
-    ["نیروگاه‌ها", "قطعات و پکیج‌های صنعتی برای تولید پایدار انرژی."],
-    ["پروژه‌های EPC", "تأمین هماهنگ و پشتیبانی تجاری برای تحویل پروژه."],
+    ["نفت و گاز", "برنامه‌های تأمین تجهیزات برای عملیات بالادست و میان‌دست.", asset("industry-oil-gas.webp")],
+    ["پتروشیمی", "خرید فنی برای محیط‌های پیچیده فرایندی.", asset("industry-petrochemical.webp")],
+    ["معدن و فلزات", "مواد، ماشین‌آلات و اجرای صادرات فلزات صنعتی.", asset("industry-mining-metals.webp")],
+    ["پالایشگاه‌ها", "تجهیزات و مواد حیاتی برای عملیات دشوار پالایشی.", asset("industry-refineries.webp")],
+    ["نیروگاه‌ها", "قطعات و پکیج‌های صنعتی برای تولید پایدار انرژی.", asset("industry-power-plants.webp")],
+    ["پروژه‌های EPC", "تأمین هماهنگ و پشتیبانی تجاری برای تحویل پروژه.", asset("industry-epc-projects.webp")],
   ],
 };
 
@@ -575,14 +575,14 @@ function Industries({ lang, t }) {
     <section className="industries section" id="industries">
       <SectionIntro label={t.industriesLabel} title={t.industriesTitle} />
       <div className="industry-panels" data-reveal>
-        {industries[lang].map(([title, description], index) => (
+        {industries[lang].map(([title, description, image], index) => (
           <button
             key={title}
             className={active === index ? "active" : ""}
             onMouseEnter={() => setActive(index)}
             onFocus={() => setActive(index)}
             onClick={() => setActive(index)}
-            style={{ "--panel-position": `${index * 20}%` }}
+            style={{ "--industry-image": `url("${image}")` }}
           >
             <span className="industry-panels__number">0{index + 1}</span>
             <h3>{title}</h3>
@@ -760,7 +760,6 @@ export default function App() {
     <div
       className={`app app--${lang}`}
       style={{
-        "--industrial-image": `url("${asset("industrial-panorama.webp")}")`,
         "--contact-image": `url("${asset("port.webp")}")`,
       }}
     >
